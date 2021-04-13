@@ -1,17 +1,36 @@
-## My Project
+# Configuration
 
-TODO: Fill this README out!
+## App.config
+```
+<appSettings>
+		<add key="timerInterval" value="10"/>
+		<add key="services" value="kubelet,kube-proxy"/>
+</appSettings>
+```
+**timerInterval(seconds)** - Polling interval  
+**services** - Comma separated list of services to check - pre-configured with kubelet, kube-proxy
 
-Be sure to:
+# Commands
+## Install the service
+`New-Service -Name "KubeSvcMonitor" -Description "Monitors Kubernetes services and restarts them if they are stopped" -BinaryPathName <full-path-of-exe>`  
+**or**  
+`sc create "KubeSvcMonitor"  binpath=<full-path-of-exe>`
 
-* Change the title in this README
-* Edit your repository description on GitHub
+## Start the service
+`Start-Service -Name "KubeSvcMonitor"`  
+**or**  
+`sc start "KubeSvcMonitor"`
 
-## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+## Stop the service
+`Stop-Service -Name "KubeSvcMonitor"`  
+**or**  
+`sc stop "KubeSvcMonitor"`
 
-## License
+## Remove the service
+`Remove-Service -Name "KubeSvcMonitor"`  
+**or**  
+`sc delete "KubeSvcMonitor"`
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
+# Logging
+KubeSvcMonitor logs to the Event Viewer. Check `Applications and Services Logs -> KubeSvcMonitor'
