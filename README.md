@@ -1,3 +1,8 @@
+## KubeSvcMonitor
+Kubelet and Kube-Proxy on Windows don't have an action if the Windows service stops, resulting in the worker node being "Not Ready."
+
+KubeSvcMonitor is a simple Windows Service that monitors Kubelete and Kube-Proxy service status. In case one or both services stops, KubeSvcMonitor will restart the service within 30 seconds.
+
 ## Install the service
 `New-Service -Name "KubeSvcMonitor" -Description "Monitors Kubernetes services and restarts them if they are stopped" -BinaryPathName <full-path-of-exe>`  
 **or**  
