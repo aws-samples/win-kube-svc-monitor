@@ -1,15 +1,5 @@
 # Configuration
 
-## App.config
-```
-<appSettings>
-		<add key="timerInterval" value="10"/>
-		<add key="services" value="kubelet,kube-proxy"/>
-</appSettings>
-```
-**timerInterval(seconds)** - Polling interval  
-**services** - Comma separated list of services to check - pre-configured with kubelet, kube-proxy
-
 # Commands
 ## Install the service
 `New-Service -Name "KubeSvcMonitor" -Description "Monitors Kubernetes services and restarts them if they are stopped" -BinaryPathName <full-path-of-exe>`  
