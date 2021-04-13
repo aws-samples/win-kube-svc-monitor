@@ -1,6 +1,3 @@
-# Configuration
-
-# Commands
 ## Install the service
 `New-Service -Name "KubeSvcMonitor" -Description "Monitors Kubernetes services and restarts them if they are stopped" -BinaryPathName <full-path-of-exe>`  
 **or**  
