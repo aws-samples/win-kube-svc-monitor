@@ -8,6 +8,11 @@ KubeSvcMonitor is a simple Windows Service that monitors Kubelete and Kube-Proxy
 **or**  
 `sc create "KubeSvcMonitor"  binpath=<full-path-of-exe>`
 
+The binpath must contain the following files:
+
+ - KubeSvcMonitor.exe 
+ - KubeSvcMonitor.exe.config
+
 ## Start the service
 `Start-Service -Name "KubeSvcMonitor"`  
 **or**  
